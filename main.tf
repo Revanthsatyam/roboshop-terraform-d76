@@ -4,6 +4,7 @@ module "vpc" {
   env            = var.env
   tags           = var.tags
   default_vpc_id = var.default_vpc_id
+  default_cidr   = var.default_cidr
 
   for_each = var.vpc
   cidr     = each.value["cidr"]

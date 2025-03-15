@@ -1,3 +1,4 @@
+default_cidr   = "172.31.25.133/32"
 default_vpc_id = "vpc-006ef82862dcda957"
 env            = "dev"
 
