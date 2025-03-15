@@ -1,7 +1,7 @@
-default_route_table_id = "rtb-040b4e846292f4d3b"
-default_cidr   = "172.31.25.133/32"
-default_vpc_id = "vpc-006ef82862dcda957"
-env            = "dev"
+default_vpc_route_table_id = "rtb-040b4e846292f4d3b"
+default_vpc_cidr           = "172.31.0.0/16"
+default_vpc_id             = "vpc-006ef82862dcda957"
+env                        = "dev"
 
 vpc = {
   main = {
