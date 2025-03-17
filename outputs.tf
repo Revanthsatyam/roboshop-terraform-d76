@@ -3,5 +3,5 @@
 # }
 
 output "default_vpc_subnets" {
-  value = data.aws_subnets.default_vpc_subnets
+  value = lookup(data.aws_subnets.default_vpc_subnets, "ids", null)
 }
