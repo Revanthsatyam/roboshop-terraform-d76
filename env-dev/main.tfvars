@@ -42,6 +42,6 @@ alb = {
     internal           = true
     load_balancer_type = "application"
     port               = 80
-    ssh_ingress        = ["10.0.0.0/16", "172.31.25.133/32"]
+    ssh_ingress        = ["10.0.0.0/16", "172.31.0.0/16"]
   }
 }
