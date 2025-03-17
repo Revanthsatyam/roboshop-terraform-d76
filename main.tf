@@ -11,3 +11,7 @@ module "vpc" {
   cidr     = each.value["cidr"]
   subnets  = each.value["subnets"]
 }
+
+module "alb" {
+  source = "git::https://github.com/Revanthsatyam/tf-module-alb-d76.git"
+}
