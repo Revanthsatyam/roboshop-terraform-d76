@@ -14,4 +14,7 @@ module "vpc" {
 
 module "alb" {
   source = "git::https://github.com/Revanthsatyam/tf-module-alb-d76.git"
+
+  env  = var.env
+  tags = var.tags
 }
