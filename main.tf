@@ -12,16 +12,16 @@ module "vpc" {
   subnets  = each.value["subnets"]
 }
 
-module "alb" {
-  source = "git::https://github.com/Revanthsatyam/tf-module-alb-d76.git"
-
-  env            = var.env
-  tags           = var.tags
-
-  for_each           = var.alb
-  internal           = each.value["internal"]
-  load_balancer_type = each.value["load_balancer_type"]
-  sg_port            = each.value["port"]
-  ssh_ingress        = each.value["ssh_ingress"]
-  vpc_id             = each.value["internal"] ? local.vpc_id : var.default_vpc_id
-}
+# module "alb" {
+#   source = "git::https://github.com/Revanthsatyam/tf-module-alb-d76.git"
+#
+#   env            = var.env
+#   tags           = var.tags
+#
+#   for_each           = var.alb
+#   internal           = each.value["internal"]
+#   load_balancer_type = each.value["load_balancer_type"]
+#   sg_port            = each.value["port"]
+#   ssh_ingress        = each.value["ssh_ingress"]
+#   vpc_id             = each.value["internal"] ? local.vpc_id : var.default_vpc_id
+# }
