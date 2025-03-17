@@ -17,4 +17,10 @@ module "alb" {
 
   env  = var.env
   tags = var.tags
+
+  for_each           = var.alb
+  internal           = each.value["internal"]
+  load_balancer_type = each.value["load_balancer_type"]
+  sg_port            = each.value["port"]
+  ssh_ingress        = each.value["ssh_ingress"]
 }
