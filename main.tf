@@ -17,7 +17,6 @@ module "alb" {
 
   env            = var.env
   tags           = var.tags
-  subnets        = lookup(data.aws_subnets.default_vpc_subnets, "ids", null)
 
   for_each           = var.alb
   internal           = each.value["internal"]
@@ -25,4 +24,5 @@ module "alb" {
   sg_port            = each.value["port"]
   ssh_ingress        = each.value["ssh_ingress"]
   vpc_id             = each.value["internal"] ? local.vpc_id : var.default_vpc_id
+  subnets            = each.value["internal"] ? local.app_subnets: lookup(data.aws_subnets.default_vpc_subnets, "ids", null)
 }
