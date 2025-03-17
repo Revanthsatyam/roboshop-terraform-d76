@@ -15,8 +15,9 @@ module "vpc" {
 module "alb" {
   source = "git::https://github.com/Revanthsatyam/tf-module-alb-d76.git"
 
-  env  = var.env
-  tags = var.tags
+  env            = var.env
+  tags           = var.tags
+  default_vpc_id = var.default_vpc_id
 
   for_each           = var.alb
   internal           = each.value["internal"]
