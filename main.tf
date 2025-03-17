@@ -17,7 +17,6 @@ module "alb" {
 
   env            = var.env
   tags           = var.tags
-  default_vpc_id = var.default_vpc_id
 
   for_each           = var.alb
   internal           = each.value["internal"]
