@@ -3,6 +3,14 @@ default_vpc_cidr           = "172.31.0.0/16"
 default_vpc_id             = "vpc-006ef82862dcda957"
 env                        = "dev"
 
+tags = {
+  company_name  = "ABC Tech"
+  business_unit = "Ecommerce"
+  project_name  = "robotshop"
+  cost_center   = "ecom_rs"
+  created_by    = "terraform"
+}
+
 vpc = {
   main = {
     cidr = "10.0.0.0/16"
@@ -21,12 +29,4 @@ vpc = {
       }
     }
   }
-}
-
-tags = {
-  company_name  = "ABC Tech"
-  business_unit = "Ecommerce"
-  project_name  = "robotshop"
-  cost_center   = "ecom_rs"
-  created_by    = "terraform"
 }
