@@ -33,7 +33,12 @@ module "docdb" {
   subnet_ids = local.db_subnets
   vpc_id     = local.vpc_id
 
-  for_each    = var.docdb
-  sg_port     = each.value["sg_port"]
-  ssh_ingress = each.value["ssh_ingress"]
+  for_each                = var.docdb
+  sg_port                 = each.value["sg_port"]
+  ssh_ingress             = each.value["ssh_ingress"]
+  engine                  = each.value["engine"]
+  engine_version          = each.value["engine_version"]
+  backup_retention_period = each.value["backup_retention_period"]
+  preferred_backup_window = each.value["preferred_backup_window"]
+  skip_final_snapshot     = each.value["skip_final_snapshot"]
 }

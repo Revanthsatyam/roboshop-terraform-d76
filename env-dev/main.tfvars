@@ -48,7 +48,12 @@ alb = {
 
 docdb = {
   main = {
-    sg_port     = 27017
-    ssh_ingress = ["10.0.0.0/16"]
+    sg_port                 = 27017
+    ssh_ingress             = ["10.0.0.0/16"]
+    engine                  = "docdb"
+    engine_version          = "3.6.0"
+    backup_retention_period = 5
+    preferred_backup_window = "07:00-09:00"
+    skip_final_snapshot     = true
   }
 }
