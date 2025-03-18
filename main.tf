@@ -30,5 +30,5 @@ module "alb" {
 module "docdb" {
   source = "git::https://github.com/Revanthsatyam/tf-module-docdb-d76.git"
 
-
+  subnet_ids = local.db_subnets
 }
