@@ -30,6 +30,9 @@ module "alb" {
 module "docdb" {
   source = "git::https://github.com/Revanthsatyam/tf-module-docdb-d76.git"
 
+  env  = var.env
+  tags = var.tags
+
   subnet_ids = local.db_subnets
   vpc_id     = local.vpc_id
 
