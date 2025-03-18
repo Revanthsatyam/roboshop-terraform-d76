@@ -15,8 +15,8 @@ module "vpc" {
 module "alb" {
   source = "git::https://github.com/Revanthsatyam/tf-module-alb-d76.git"
 
-  env            = var.env
-  tags           = var.tags
+  env  = var.env
+  tags = var.tags
 
   for_each           = var.alb
   internal           = each.value["internal"]
@@ -24,11 +24,16 @@ module "alb" {
   sg_port            = each.value["port"]
   ssh_ingress        = each.value["ssh_ingress"]
   vpc_id             = each.value["internal"] ? local.vpc_id : var.default_vpc_id
-  subnets            = each.value["internal"] ? local.app_subnets: lookup(data.aws_subnets.default_vpc_subnets, "ids", null)
+  subnets            = each.value["internal"] ? local.app_subnets : lookup(data.aws_subnets.default_vpc_subnets, "ids", null)
 }
 
 module "docdb" {
   source = "git::https://github.com/Revanthsatyam/tf-module-docdb-d76.git"
 
   subnet_ids = local.db_subnets
+  vpc_id     = local.vpc_id
+
+  for_each    = var.docdb
+  sg_port     = each.value["sg_port"]
+  ssh_ingress = each.value["ssh_ingress"]
 }
