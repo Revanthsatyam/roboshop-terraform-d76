@@ -26,3 +26,9 @@ module "alb" {
   vpc_id             = each.value["internal"] ? local.vpc_id : var.default_vpc_id
   subnets            = each.value["internal"] ? local.app_subnets: lookup(data.aws_subnets.default_vpc_subnets, "ids", null)
 }
+
+module "docdb" {
+  source = "git::https://github.com/Revanthsatyam/tf-module-docdb-d76.git"
+
+
+}
