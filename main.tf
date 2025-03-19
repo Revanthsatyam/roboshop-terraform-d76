@@ -13,7 +13,8 @@ module "vpc" {
 }
 
 module "alb" {
-  source = "git::https://github.com/Revanthsatyam/tf-module-alb-d76.git"
+  depends_on = [module.vpc]
+  source     = "git::https://github.com/Revanthsatyam/tf-module-alb-d76.git"
 
   env  = var.env
   tags = var.tags
@@ -28,7 +29,8 @@ module "alb" {
 }
 
 module "docdb" {
-  source = "git::https://github.com/Revanthsatyam/tf-module-docdb-d76.git"
+  depends_on = [module.vpc]
+  source     = "git::https://github.com/Revanthsatyam/tf-module-docdb-d76.git"
 
   env  = var.env
   tags = var.tags
@@ -50,7 +52,8 @@ module "docdb" {
 }
 
 module "rds" {
-  source = "git::https://github.com/Revanthsatyam/tf-module-rds-d76.git"
+  depends_on = [module.vpc]
+  source     = "git::https://github.com/Revanthsatyam/tf-module-rds-d76.git"
 
   env  = var.env
   tags = var.tags
