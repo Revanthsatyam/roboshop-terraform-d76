@@ -7,3 +7,4 @@ variable "default_vpc_route_table_id" {}
 variable "alb" {}
 variable "docdb" {}
 variable "rds" {}
+variable "elasticache" {}
