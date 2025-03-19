@@ -60,3 +60,10 @@ docdb = {
     instance_count          = 2
   }
 }
+
+rds = {
+  main = {
+    sg_port     = 3306
+    ssh_ingress = ["10.0.0.0/16"]
+  }
+}
