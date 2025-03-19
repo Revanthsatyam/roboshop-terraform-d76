@@ -39,14 +39,14 @@ module "docdb" {
 
   for_each                = var.docdb
   sg_port                 = each.value["sg_port"]
+  engine_family           = each.value["engine_family"]
   engine                  = each.value["engine"]
   engine_version          = each.value["engine_version"]
   backup_retention_period = each.value["backup_retention_period"]
   preferred_backup_window = each.value["preferred_backup_window"]
   skip_final_snapshot     = each.value["skip_final_snapshot"]
-  instance_class          = each.value["instance_class"]
-  engine_family           = each.value["engine_family"]
   instance_count          = each.value["instance_count"]
+  instance_class          = each.value["instance_class"]
 }
 
 module "rds" {
@@ -67,4 +67,6 @@ module "rds" {
   backup_retention_period = each.value["backup_retention_period"]
   preferred_backup_window = each.value["preferred_backup_window"]
   skip_final_snapshot     = each.value["skip_final_snapshot"]
+  instance_count          = each.value["instance_count"]
+  instance_class          = each.value["instance_class"]
 }
