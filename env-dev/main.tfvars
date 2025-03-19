@@ -49,14 +49,14 @@ alb = {
 docdb = {
   main = {
     sg_port                 = 27017
+    engine_family           = "docdb3.6"
     engine                  = "docdb"
     engine_version          = "3.6.0"
     backup_retention_period = 5
     preferred_backup_window = "07:00-09:00"
     skip_final_snapshot     = true
+    instance_count          = 1
     instance_class          = "db.t3.medium"
-    engine_family           = "docdb3.6"
-    instance_count          = 2
   }
 }
 
@@ -69,5 +69,7 @@ rds = {
     backup_retention_period = 5
     preferred_backup_window = "07:00-09:00"
     skip_final_snapshot     = true
+    instance_count          = 1
+    instance_class          = "db.t3.small"
   }
 }
