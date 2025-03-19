@@ -24,7 +24,8 @@ module "alb" {
   sg_port            = each.value["port"]
   ssh_ingress        = each.value["ssh_ingress"]
   vpc_id             = each.value["internal"] ? local.vpc_id : var.default_vpc_id
-  subnets            = each.value["internal"] ? local.app_subnets : lookup(data.aws_subnets.default_vpc_subnets, "ids", null)
+  subnets            = each.value["internal"] ? local.app_subnets :
+    lookup(data.aws_subnets.default_vpc_subnets, "ids", null)
 }
 
 module "docdb" {
@@ -33,8 +34,9 @@ module "docdb" {
   env  = var.env
   tags = var.tags
 
-  subnet_ids = local.db_subnets
-  vpc_id     = local.vpc_id
+  subnet_ids  = local.db_subnets
+  vpc_id      = local.vpc_id
+  ssh_ingress = local.app_subnets_cidr
 
   for_each                = var.docdb
   sg_port                 = each.value["sg_port"]
@@ -55,11 +57,15 @@ module "rds" {
   env  = var.env
   tags = var.tags
 
-  subnet_ids = local.db_subnets
-  vpc_id     = local.vpc_id
+  subnet_ids  = local.db_subnets
+  vpc_id      = local.vpc_id
+  ssh_ingress = local.app_subnets_cidr
 
-  for_each      = var.rds
-  sg_port       = each.value["sg_port"]
-  ssh_ingress   = each.value["ssh_ingress"]
-  engine_family = each.value["engine_family"]
+  for_each                = var.rds
+  sg_port                 = each.value["sg_port"]
+  engine_family           = each.value["engine_family"]
+  engine                  = each.value["engine"]
+  engine_version          = each.value["engine_version"]
+  backup_retention_period = each.value["backup_retention_period"]
+  preferred_backup_window = each.value["preferred_backup_window"]
 }
