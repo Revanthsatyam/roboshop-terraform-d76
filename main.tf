@@ -24,8 +24,7 @@ module "alb" {
   sg_port            = each.value["port"]
   ssh_ingress        = each.value["ssh_ingress"]
   vpc_id             = each.value["internal"] ? local.vpc_id : var.default_vpc_id
-  subnets            = each.value["internal"] ? local.app_subnets :
-    lookup(data.aws_subnets.default_vpc_subnets, "ids", null)
+  subnets            = each.value["internal"] ? local.app_subnets : data.aws_subnets.default_vpc_subnets.ids
 }
 
 module "docdb" {
@@ -40,7 +39,6 @@ module "docdb" {
 
   for_each                = var.docdb
   sg_port                 = each.value["sg_port"]
-  ssh_ingress             = each.value["ssh_ingress"]
   engine                  = each.value["engine"]
   engine_version          = each.value["engine_version"]
   backup_retention_period = each.value["backup_retention_period"]
