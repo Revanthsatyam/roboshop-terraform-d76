@@ -24,7 +24,8 @@ module "alb" {
   sg_port            = each.value["port"]
   ssh_ingress        = each.value["ssh_ingress"]
   vpc_id             = each.value["internal"] ? local.vpc_id : var.default_vpc_id
-  subnets            = each.value["internal"] ? local.app_subnets : lookup(data.aws_subnets.default_vpc_subnets, "ids", null)
+  subnets            = each.value["internal"] ? local.app_subnets :
+    lookup(data.aws_subnets.default_vpc_subnets, "ids", null)
 }
 
 module "docdb" {
@@ -47,4 +48,13 @@ module "docdb" {
   instance_class          = each.value["instance_class"]
   engine_family           = each.value["engine_family"]
   instance_count          = each.value["instance_count"]
+}
+
+module "rds" {
+  source = "git::https://github.com/Revanthsatyam/tf-module-rds-d76.git"
+
+  env  = var.env
+  tags = var.tags
+
+  subnet_ids = local.db_subnets
 }
