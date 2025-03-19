@@ -65,5 +65,6 @@ rds = {
   main = {
     sg_port     = 3306
     ssh_ingress = ["10.0.0.0/16"]
+    engine_family = "aurora5.6"
   }
 }

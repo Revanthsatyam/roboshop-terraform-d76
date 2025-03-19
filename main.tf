@@ -58,7 +58,8 @@ module "rds" {
   subnet_ids = local.db_subnets
   vpc_id     = local.vpc_id
 
-  for_each    = var.rds
-  sg_port     = each.value["sg_port"]
-  ssh_ingress = each.value["ssh_ingress"]
+  for_each      = var.rds
+  sg_port       = each.value["sg_port"]
+  ssh_ingress   = each.value["ssh_ingress"]
+  engine_family = each.value["engine_family"]
 }
