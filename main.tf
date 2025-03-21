@@ -93,3 +93,17 @@ module "elasticache" {
   num_cache_nodes = each.value["num_cache_nodes"]
   engine_version  = each.value["engine_version"]
 }
+
+module "rabbitmq" {
+  depends_on = [module.vpc]
+  source     = "git::https://github.com/Revanthsatyam/tf-module-rabbitmq-d76.git"
+
+  env  = var.env
+  tags = var.tags
+
+  vpc_id = local.vpc_id
+
+  for_each = var.rabbitmq
+  sg_port_1 = each.value["sg_port_1"]
+  sg_port_2 = each.value["sg_port_2"]
+}

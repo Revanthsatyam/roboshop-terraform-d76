@@ -84,3 +84,10 @@ elasticache = {
     engine_version  = "6.2"
   }
 }
+
+rabbitmq = {
+  main = {
+    sg_port_1 = 5672
+    sg_port_2 = 15672
+  }
+}
