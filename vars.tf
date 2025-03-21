@@ -11,3 +11,4 @@ variable "elasticache" {}
 variable "rabbitmq" {}
 variable "ami_id" {}
 variable "ssh_ingress_cidr" {}
+variable "hosted_zone_id" {}

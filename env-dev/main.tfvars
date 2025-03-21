@@ -4,6 +4,7 @@ default_vpc_id             = "vpc-006ef82862dcda957"
 env                        = "dev"
 ami_id                     = "ami-0b4f379183e5706b9"
 ssh_ingress_cidr           = ["172.31.25.133/32"]
+hosted_zone_id             = "Z07966242J8KCTFJ55T6X"
 
 tags = {
   company_name  = "ABC Tech"
