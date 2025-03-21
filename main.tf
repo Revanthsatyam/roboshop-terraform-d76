@@ -104,8 +104,9 @@ module "rabbitmq" {
   ami_id           = var.ami_id
   hosted_zone_id   = var.hosted_zone_id
 
-  vpc_id     = local.vpc_id
-  subnet_ids = local.db_subnets
+  subnet_ids  = local.db_subnets
+  ssh_ingress = local.app_subnets_cidr
+  vpc_id      = local.vpc_id
 
   for_each      = var.rabbitmq
   sg_port_1     = each.value["sg_port_1"]
