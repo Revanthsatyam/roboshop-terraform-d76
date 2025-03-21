@@ -101,7 +101,7 @@ module "rabbitmq" {
   env              = var.env
   tags             = var.tags
   ssh_ingress_cidr = var.ssh_ingress_cidr
-  amd_id           = var.ami_id
+  ami_id           = var.ami_id
   hosted_zone_id   = var.hosted_zone_id
 
   vpc_id     = local.vpc_id
