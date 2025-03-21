@@ -2,6 +2,8 @@ default_vpc_route_table_id = "rtb-040b4e846292f4d3b"
 default_vpc_cidr           = "172.31.0.0/16"
 default_vpc_id             = "vpc-006ef82862dcda957"
 env                        = "dev"
+ami_id                     = "ami-0b4f379183e5706b9"
+ssh_ingress_cidr           = ["172.31.25.133/32"]
 
 tags = {
   company_name  = "ABC Tech"
@@ -87,7 +89,8 @@ elasticache = {
 
 rabbitmq = {
   main = {
-    sg_port_1 = 5672
-    sg_port_2 = 15672
+    sg_port_1     = 5672
+    sg_port_2     = 15672
+    instance_type = "t3.micro"
   }
 }

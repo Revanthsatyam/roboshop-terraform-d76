@@ -98,12 +98,15 @@ module "rabbitmq" {
   depends_on = [module.vpc]
   source     = "git::https://github.com/Revanthsatyam/tf-module-rabbitmq-d76.git"
 
-  env  = var.env
-  tags = var.tags
+  env              = var.env
+  tags             = var.tags
+  ssh_ingress_cidr = var.ssh_ingress_cidr
+  amd_id           = var.ami_id
 
   vpc_id = local.vpc_id
 
-  for_each = var.rabbitmq
-  sg_port_1 = each.value["sg_port_1"]
-  sg_port_2 = each.value["sg_port_2"]
+  for_each      = var.rabbitmq
+  sg_port_1     = each.value["sg_port_1"]
+  sg_port_2     = each.value["sg_port_2"]
+  instance_type = each.value["instance_type"]
 }

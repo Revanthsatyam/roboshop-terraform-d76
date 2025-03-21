@@ -9,3 +9,5 @@ variable "docdb" {}
 variable "rds" {}
 variable "elasticache" {}
 variable "rabbitmq" {}
+variable "ami_id" {}
+variable "ssh_ingress_cidr" {}
