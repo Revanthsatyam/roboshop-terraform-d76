@@ -103,7 +103,8 @@ module "rabbitmq" {
   ssh_ingress_cidr = var.ssh_ingress_cidr
   amd_id           = var.ami_id
 
-  vpc_id = local.vpc_id
+  vpc_id     = local.vpc_id
+  subnet_ids = local.db_subnets
 
   for_each      = var.rabbitmq
   sg_port_1     = each.value["sg_port_1"]
