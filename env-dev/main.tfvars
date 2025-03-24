@@ -98,6 +98,6 @@ rabbitmq = {
 
 app = {
   frontend = {
-    sg_port = 22
+    sg_port = 80
   }
 }

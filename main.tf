@@ -122,7 +122,8 @@ module "app" {
   tags             = var.tags
   ssh_ingress_cidr = var.ssh_ingress_cidr
 
-  vpc_id = local.vpc_id
+  vpc_id          = local.vpc_id
+  sg_ingress_cidr = local.app_subnets_cidr
 
   for_each = var.app
   app_name = each.key
