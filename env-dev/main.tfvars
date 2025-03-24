@@ -95,3 +95,9 @@ rabbitmq = {
     instance_type = "t3.micro"
   }
 }
+
+app = {
+  frontend = {
+    sg_port = 22
+  }
+}

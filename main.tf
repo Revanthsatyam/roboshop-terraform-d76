@@ -113,3 +113,17 @@ module "rabbitmq" {
   sg_port_2     = each.value["sg_port_2"]
   instance_type = each.value["instance_type"]
 }
+
+module "app" {
+  depends_on = [module.vpc, module.alb, module.docdb, module.rds, module.elasticache, module.rabbitmq]
+  source     = "git::https://github.com/Revanthsatyam/tf-module-app-d76.git"
+
+  env              = var.env
+  tags             = var.tags
+  ssh_ingress_cidr = var.ssh_ingress_cidr
+
+  vpc_id = local.vpc_id
+
+  for_each = var.app
+  app_name = each.key
+}
