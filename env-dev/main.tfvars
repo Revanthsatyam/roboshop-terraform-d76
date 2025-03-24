@@ -100,4 +100,19 @@ app = {
   frontend = {
     sg_port = 80
   }
+  catalogue = {
+    sg_port = 8080
+  }
+  user = {
+    sg_port = 8080
+  }
+  cart = {
+    sg_port = 8080
+  }
+  payment = {
+    sg_port = 8080
+  }
+  shipping = {
+    sg_port = 8080
+  }
 }
