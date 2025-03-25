@@ -98,21 +98,11 @@ rabbitmq = {
 
 app = {
   frontend = {
-    sg_port = 80
+    sg_port       = 80
+    instance_type = "t2.micro"
   }
   catalogue = {
-    sg_port = 8080
-  }
-  user = {
-    sg_port = 8080
-  }
-  cart = {
-    sg_port = 8080
-  }
-  payment = {
-    sg_port = 8080
-  }
-  shipping = {
-    sg_port = 8080
+    sg_port       = 8080
+    instance_type = "t2.micro"
   }
 }

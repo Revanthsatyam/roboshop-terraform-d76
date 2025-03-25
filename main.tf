@@ -121,10 +121,12 @@ module "app" {
   env              = var.env
   tags             = var.tags
   ssh_ingress_cidr = var.ssh_ingress_cidr
+  ami_id           = var.ami_id
 
   vpc_id          = local.vpc_id
   sg_ingress_cidr = local.app_subnets_cidr
 
-  for_each = var.app
-  app_name = each.key
+  for_each      = var.app
+  app_name      = each.key
+  instance_type = each.value["instance_type"]
 }
