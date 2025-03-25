@@ -97,12 +97,12 @@ rabbitmq = {
 }
 
 app = {
-  frontend = {
-    sg_port       = 80
-    instance_type = "t2.micro"
-  }
   catalogue = {
     sg_port       = 8080
+    instance_type = "t2.micro"
+  }
+  frontend = {
+    sg_port       = 80
     instance_type = "t2.micro"
   }
 }
