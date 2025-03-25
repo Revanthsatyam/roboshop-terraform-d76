@@ -127,7 +127,10 @@ module "app" {
   sg_ingress_cidr    = local.app_subnets_cidr
   availability_zones = local.app_subnets
 
-  for_each      = var.app
-  app_name      = each.key
-  instance_type = each.value["instance_type"]
+  for_each         = var.app
+  app_name         = each.key
+  instance_type    = each.value["instance_type"]
+  max_size         = each.value["max_size"]
+  min_size         = each.value["min_size"]
+  desired_capacity = each.value["desired_capacity"]
 }
