@@ -127,6 +127,7 @@ module "app" {
   vpc_id          = local.vpc_id
   sg_ingress_cidr = local.app_subnets_cidr
   subnet_id       = local.app_subnets
+  dns_record      = local.private_alb_dns
 
   for_each         = var.app
   app_name         = each.key
