@@ -1,3 +1,3 @@
 output "app" {
-  value = lookup(module.alb, "main", null)
+  value = lookup(module.alb, "private", null)
 }
