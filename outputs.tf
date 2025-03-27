@@ -1,3 +1,3 @@
 output "app" {
-  value = lookup(module.alb, "private", null)
+  value = lookup(lookup(module.alb, "private", null), "dns_name", null)
 }
