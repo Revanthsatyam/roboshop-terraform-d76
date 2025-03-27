@@ -129,6 +129,7 @@ module "app" {
 
   for_each         = var.app
   app_name         = each.key
+  sg_port          = each.value["sg_port"]
   instance_type    = each.value["instance_type"]
   max_size         = each.value["max_size"]
   min_size         = each.value["min_size"]
