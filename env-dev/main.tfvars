@@ -103,6 +103,7 @@ app = {
     max_size         = 5
     min_size         = 1
     desired_capacity = 1
+    priority         = 1
   }
   frontend = {
     sg_port          = 80
@@ -110,5 +111,6 @@ app = {
     max_size         = 5
     min_size         = 1
     desired_capacity = 1
+    priority         = 2
   }
 }

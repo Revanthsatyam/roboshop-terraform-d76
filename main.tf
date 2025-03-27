@@ -136,4 +136,5 @@ module "app" {
   max_size         = each.value["max_size"]
   min_size         = each.value["min_size"]
   desired_capacity = each.value["desired_capacity"]
+  priority         = each.value["priority"]
 }
