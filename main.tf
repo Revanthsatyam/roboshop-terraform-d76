@@ -124,11 +124,12 @@ module "app" {
   ami_id           = var.ami_id
   zone_id          = var.hosted_zone_id
 
-  vpc_id          = local.vpc_id
-  sg_ingress_cidr = local.app_subnets_cidr
-  subnet_id       = local.app_subnets
-  dns_record      = local.private_alb_dns
-  listener_arn    = local.private_alb_listener
+  vpc_id             = local.vpc_id
+  sg_ingress_cidr    = local.app_subnets_cidr
+  subnet_id          = local.app_subnets
+  public_dns_record  = local.public_alb_dns
+  private_dns_record = local.private_alb_dns
+  listener_arn       = local.private_alb_listener
 
   for_each         = var.app
   app_name         = each.key
