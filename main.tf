@@ -128,6 +128,7 @@ module "app" {
   sg_ingress_cidr = local.app_subnets_cidr
   subnet_id       = local.app_subnets
   dns_record      = local.private_alb_dns
+  listener_arn    = local.private_alb_listener
 
   for_each         = var.app
   app_name         = each.key
