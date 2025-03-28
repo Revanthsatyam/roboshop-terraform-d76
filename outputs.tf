@@ -1,3 +1,3 @@
-# output "alb" {
-#   value = module.alb
-# }
+output "alb" {
+  value = lookup(lookup(module.alb, "private", null), "alb", null)
+}
