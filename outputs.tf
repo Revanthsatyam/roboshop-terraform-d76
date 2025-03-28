@@ -1,3 +1,3 @@
-# output "alb" {
-#   value = module.alb
-# }
+output "app" {
+  value = module.app
+}
