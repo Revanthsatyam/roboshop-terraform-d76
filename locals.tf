@@ -7,4 +7,6 @@ locals {
 
   private_alb_dns = lookup(lookup(lookup(module.alb, "private", null), "alb", null), "dns_name", null)
   public_alb_dns  = lookup(lookup(lookup(module.alb, "public", null), "alb", null), "dns_name", null)
+  private_alb_listener = lookup(lookup(lookup(module.alb, "private", null), "listener", null), "arn", null)
+  public_alb_listener  = lookup(lookup(lookup(module.alb, "public", null), "listener", null), "arn", null)
 }
