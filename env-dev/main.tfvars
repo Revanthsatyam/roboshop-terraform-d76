@@ -105,20 +105,4 @@ app = {
     desired_capacity = 1
     priority         = 1
   }
-  catalogue = {
-    sg_port          = 8080
-    instance_type    = "t2.micro"
-    max_size         = 5
-    min_size         = 1
-    desired_capacity = 1
-    priority         = 2
-  }
-  user = {
-    sg_port          = 8080
-    instance_type    = "t2.micro"
-    max_size         = 5
-    min_size         = 1
-    desired_capacity = 1
-    priority         = 3
-  }
 }
