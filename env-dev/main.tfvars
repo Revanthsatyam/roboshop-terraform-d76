@@ -121,7 +121,7 @@ app = {
     desired_capacity = 1
     priority         = 3
   }
-  user = {
+  cart = {
     sg_port          = 8080
     instance_type    = "t3.micro"
     max_size         = 5
