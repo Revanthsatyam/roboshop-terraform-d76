@@ -129,4 +129,12 @@ app = {
     desired_capacity = 1
     priority         = 4
   }
+  shipping = {
+    sg_port          = 8080
+    instance_type    = "t3.micro"
+    max_size         = 5
+    min_size         = 1
+    desired_capacity = 1
+    priority         = 5
+  }
 }
