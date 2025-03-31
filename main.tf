@@ -118,12 +118,13 @@ module "app" {
   depends_on = [module.vpc, module.alb, module.docdb, module.rds, module.elasticache, module.rabbitmq]
   source     = "git::https://github.com/Revanthsatyam/tf-module-app-d76.git"
 
-  env              = var.env
-  tags             = var.tags
-  ssh_ingress_cidr = var.ssh_ingress_cidr
-  ami_id           = var.ami_id
-  zone_id          = var.hosted_zone_id
-  default_vpc_id   = var.default_vpc_id
+  env                   = var.env
+  tags                  = var.tags
+  ssh_ingress_cidr      = var.ssh_ingress_cidr
+  ami_id                = var.ami_id
+  zone_id               = var.hosted_zone_id
+  default_vpc_id        = var.default_vpc_id
+  prometheus_private_ip = var.prometheus_private_ip
 
   vpc_id               = local.vpc_id
   sg_ingress_cidr      = local.app_subnets_cidr
