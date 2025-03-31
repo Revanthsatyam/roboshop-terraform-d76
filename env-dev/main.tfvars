@@ -5,7 +5,7 @@ env                        = "dev"
 ami_id                     = "ami-0b4f379183e5706b9"
 ssh_ingress_cidr           = ["172.31.25.133/32"]
 hosted_zone_id             = "Z07966242J8KCTFJ55T6X"
-prometheus_private_ip      = "172.31.9.233/32"
+prometheus_private_ip      = ["172.31.9.233/32"]
 
 tags = {
   company_name  = "ABC Tech"
