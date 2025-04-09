@@ -106,7 +106,7 @@ app = {
     min_size         = 1
     desired_capacity = 1
     priority         = 1
-    parameters       = [frontend, nexus]
+    parameters       = ["frontend", "nexus"]
   }
   catalogue = {
     sg_port          = 8080
