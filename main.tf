@@ -125,6 +125,7 @@ module "app" {
   zone_id               = var.hosted_zone_id
   default_vpc_id        = var.default_vpc_id
   prometheus_private_ip = var.prometheus_private_ip
+  kms_key               = var.kms_key_arn
 
   vpc_id               = local.vpc_id
   sg_ingress_cidr      = local.app_subnets_cidr
