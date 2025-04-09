@@ -143,4 +143,5 @@ module "app" {
   min_size         = each.value["min_size"]
   desired_capacity = each.value["desired_capacity"]
   priority         = each.value["priority"]
+  parameters       = each.value["parameters"]
 }
