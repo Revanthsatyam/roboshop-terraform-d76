@@ -105,6 +105,7 @@ module "rabbitmq" {
   ssh_ingress_cidr = var.ssh_ingress_cidr
   ami_id           = var.ami_id
   hosted_zone_id   = var.hosted_zone_id
+  kms_key          = var.kms_key_arn
 
   subnet_ids  = local.db_subnets
   ssh_ingress = local.app_subnets_cidr
