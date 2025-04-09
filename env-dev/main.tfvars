@@ -115,7 +115,7 @@ app = {
     min_size         = 1
     desired_capacity = 1
     priority         = 2
-    parameters       = []
+    parameters       = ["docdb", "nexus"]
   }
   user = {
     sg_port          = 8080
@@ -124,7 +124,7 @@ app = {
     min_size         = 1
     desired_capacity = 1
     priority         = 3
-    parameters       = []
+    parameters       = ["elasticache", "docdb", "nexus"]
   }
   cart = {
     sg_port          = 8080
@@ -133,7 +133,7 @@ app = {
     min_size         = 1
     desired_capacity = 1
     priority         = 4
-    parameters       = []
+    parameters       = ["elasticache", "cart", "nexus"]
   }
   shipping = {
     sg_port          = 8080
@@ -142,7 +142,7 @@ app = {
     min_size         = 1
     desired_capacity = 1
     priority         = 5
-    parameters       = []
+    parameters       = ["shipping", "rds", "nexus"]
   }
   payment = {
     sg_port          = 8080
@@ -151,6 +151,6 @@ app = {
     min_size         = 1
     desired_capacity = 1
     priority         = 6
-    parameters       = []
+    parameters       = ["payment", "nexus"]
   }
 }
