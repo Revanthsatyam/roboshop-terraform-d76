@@ -106,6 +106,7 @@ app = {
     min_size         = 1
     desired_capacity = 1
     priority         = 1
+    parameters       = [frontend, nexus]
   }
   catalogue = {
     sg_port          = 8080
@@ -114,6 +115,7 @@ app = {
     min_size         = 1
     desired_capacity = 1
     priority         = 2
+    parameters       = []
   }
   user = {
     sg_port          = 8080
@@ -122,6 +124,7 @@ app = {
     min_size         = 1
     desired_capacity = 1
     priority         = 3
+    parameters       = []
   }
   cart = {
     sg_port          = 8080
@@ -130,6 +133,7 @@ app = {
     min_size         = 1
     desired_capacity = 1
     priority         = 4
+    parameters       = []
   }
   shipping = {
     sg_port          = 8080
@@ -138,6 +142,7 @@ app = {
     min_size         = 1
     desired_capacity = 1
     priority         = 5
+    parameters       = []
   }
   payment = {
     sg_port          = 8080
@@ -146,5 +151,6 @@ app = {
     min_size         = 1
     desired_capacity = 1
     priority         = 6
+    parameters       = []
   }
 }
