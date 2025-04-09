@@ -32,8 +32,9 @@ module "docdb" {
   depends_on = [module.vpc]
   source     = "git::https://github.com/Revanthsatyam/tf-module-docdb-d76.git"
 
-  env  = var.env
-  tags = var.tags
+  env     = var.env
+  tags    = var.tags
+  kms_key = var.kms_key_arn
 
   subnet_ids  = local.db_subnets
   vpc_id      = local.vpc_id
@@ -55,8 +56,9 @@ module "rds" {
   depends_on = [module.vpc]
   source     = "git::https://github.com/Revanthsatyam/tf-module-rds-d76.git"
 
-  env  = var.env
-  tags = var.tags
+  env     = var.env
+  tags    = var.tags
+  kms_key = var.kms_key_arn
 
   subnet_ids  = local.db_subnets
   vpc_id      = local.vpc_id
