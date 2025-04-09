@@ -115,7 +115,7 @@ app = {
     min_size         = 1
     desired_capacity = 1
     priority         = 2
-    parameters       = ["catalogue","docdb", "nexus"]
+    parameters       = ["catalogue", "docdb", "nexus"]
   }
   user = {
     sg_port          = 8080
