@@ -115,7 +115,7 @@ app = {
     min_size         = 1
     desired_capacity = 1
     priority         = 2
-    parameters       = ["docdb", "nexus"]
+    parameters       = ["catalogue","docdb", "nexus"]
   }
   user = {
     sg_port          = 8080
@@ -124,7 +124,7 @@ app = {
     min_size         = 1
     desired_capacity = 1
     priority         = 3
-    parameters       = ["elasticache", "docdb", "nexus"]
+    parameters       = ["user", "elasticache", "docdb", "nexus"]
   }
   cart = {
     sg_port          = 8080
