@@ -5,7 +5,7 @@ pipeline {
   }
 
   parameters {
-    string(name: 'ENV', defaultValue: '', description: 'Select The Environment')
+    choice(name: 'ENV', choices: ['dev', 'prod'], description: 'Select The Environment')
     choice(name: 'WORKFLOW', choices: ['apply', 'destroy'], description: 'Select Workflow')
   }
 
@@ -16,7 +16,7 @@ pipeline {
         expression { params.WORKFLOW == 'apply' }
       }
       steps {
-        sh "make ${ENV}"
+        sh "make ${params.ENV}"
       }
     }
 
@@ -25,7 +25,7 @@ pipeline {
         expression { params.WORKFLOW == 'destroy' }
       }
       steps {
-        sh "make ${ENV}-destroy"
+        sh "make ${params.ENV}-destroy"
       }
     }
 
