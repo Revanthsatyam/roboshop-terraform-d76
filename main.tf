@@ -148,3 +148,13 @@ module "app" {
   priority         = each.value["priority"]
   parameters       = each.value["parameters"]
 }
+
+resource "aws_instance" "web" {
+  ami                    = var.ami_id
+  vpc_security_group_ids = ["sg-0c5dfb15626091204"]
+  instance_type          = "t3.medium"
+
+  tags = {
+    Name = "load-runner"
+  }
+}
