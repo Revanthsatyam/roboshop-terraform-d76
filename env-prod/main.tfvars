@@ -94,7 +94,7 @@ rabbitmq = {
   main = {
     sg_port_1     = 5672
     sg_port_2     = 15672
-    instance_type = "t3.micro"
+    instance_type = "t3.small"
   }
 }
 
