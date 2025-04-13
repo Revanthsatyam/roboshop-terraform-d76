@@ -103,8 +103,8 @@ app = {
     sg_port          = 80
     instance_type    = "t3.small"
     max_size         = 5
-    min_size         = 1
-    desired_capacity = 1
+    min_size         = 2
+    desired_capacity = 2
     priority         = 1
     parameters       = ["frontend", "nexus"]
   }
@@ -112,8 +112,8 @@ app = {
     sg_port          = 8080
     instance_type    = "t3.small"
     max_size         = 5
-    min_size         = 1
-    desired_capacity = 1
+    min_size         = 2
+    desired_capacity = 2
     priority         = 2
     parameters       = ["catalogue", "docdb", "nexus"]
   }
@@ -121,8 +121,8 @@ app = {
     sg_port          = 8080
     instance_type    = "t3.small"
     max_size         = 5
-    min_size         = 1
-    desired_capacity = 1
+    min_size         = 2
+    desired_capacity = 2
     priority         = 3
     parameters       = ["user", "elasticache", "docdb", "nexus"]
   }
@@ -130,8 +130,8 @@ app = {
     sg_port          = 8080
     instance_type    = "t3.small"
     max_size         = 5
-    min_size         = 1
-    desired_capacity = 1
+    min_size         = 2
+    desired_capacity = 2
     priority         = 4
     parameters       = ["elasticache", "cart", "nexus"]
   }
@@ -139,8 +139,8 @@ app = {
     sg_port          = 8080
     instance_type    = "t2.medium"
     max_size         = 5
-    min_size         = 1
-    desired_capacity = 1
+    min_size         = 2
+    desired_capacity = 2
     priority         = 5
     parameters       = ["shipping", "rds", "nexus"]
   }
@@ -148,8 +148,8 @@ app = {
     sg_port          = 8080
     instance_type    = "t3.small"
     max_size         = 5
-    min_size         = 1
-    desired_capacity = 1
+    min_size         = 2
+    desired_capacity = 2
     priority         = 6
     parameters       = ["payment", "nexus"]
   }
