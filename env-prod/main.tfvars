@@ -40,7 +40,7 @@ alb = {
   public = {
     internal           = false
     load_balancer_type = "application"
-    port               = 80
+    port               = 443
     ssh_ingress        = ["0.0.0.0/0"]
   }
   private = {
