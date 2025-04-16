@@ -165,7 +165,12 @@ module "eks" {
 
   env         = var.env
   tags        = var.tags
-  eks_version = var.eks_version
 
   subnet_ids = local.app_subnets
+  vpc_id     = local.vpc_id
+
+  for_each        = var.eks
+  eks_version     = each.value["eks_version"]
+  sg_port         = each.value["sg_port"]
+  sg_ingress_cidr = each.value["sg_ingress_cidr"]
 }

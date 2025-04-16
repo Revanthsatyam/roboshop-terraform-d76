@@ -7,7 +7,6 @@ ssh_ingress_cidr           = ["172.31.25.133/32"]
 hosted_zone_id             = "Z07966242J8KCTFJ55T6X"
 prometheus_private_ip      = ["172.31.9.233/32"]
 kms_key_arn                = "arn:aws:kms:us-east-1:058264090525:key/2c990b0f-c40d-4ede-957b-66ec02f92cf3"
-eks_version                = "1.31"
 
 tags = {
   company_name  = "ABC Tech"
@@ -153,5 +152,13 @@ app = {
     desired_capacity = 2
     priority         = 6
     parameters       = ["payment", "nexus"]
+  }
+}
+
+eks = {
+  main = {
+    eks_version     = "1.31"
+    sg_port         = 443
+    sg_ingress_cidr = ["172.31.25.133/32"]
   }
 }
