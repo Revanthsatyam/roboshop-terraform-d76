@@ -166,4 +166,6 @@ module "eks" {
   env         = var.env
   tags        = var.tags
   eks_version = var.eks_version
+
+  subnet_ids = local.app_subnets
 }
