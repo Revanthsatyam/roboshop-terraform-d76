@@ -15,5 +15,4 @@ variable "hosted_zone_id" {}
 variable "app" {}
 variable "prometheus_private_ip" {}
 variable "kms_key_arn" {}
-variable "eks_version" {}
 variable "eks" {}
