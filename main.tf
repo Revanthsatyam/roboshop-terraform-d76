@@ -163,6 +163,7 @@ module "eks" {
   depends_on = [module.vpc]
   source     = "git::https://github.com/Revanthsatyam/tf-module-eks.git"
 
-  env  = var.env
-  tags = var.tags
+  env         = var.env
+  tags        = var.tags
+  eks_version = var.eks_version
 }
