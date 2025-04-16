@@ -158,3 +158,11 @@ module "vpc" {
 #     Name = "load-runner"
 #   }
 # }
+
+module "eks" {
+  depends_on = [module.vpc]
+  source     = "git::https://github.com/Revanthsatyam/tf-module-eks.git"
+
+  env  = var.env
+  tags = var.tags
+}
