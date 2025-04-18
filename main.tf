@@ -27,96 +27,96 @@ module "vpc" {
 #   vpc_id             = each.value["internal"] ? local.vpc_id : var.default_vpc_id
 #   subnets            = each.value["internal"] ? local.app_subnets : data.aws_subnets.default_vpc_subnets.ids
 # }
-#
-# module "docdb" {
-#   depends_on = [module.vpc]
-#   source     = "git::https://github.com/Revanthsatyam/tf-module-docdb-d76.git"
-#
-#   env     = var.env
-#   tags    = var.tags
-#   kms_key = var.kms_key_arn
-#
-#   subnet_ids  = local.db_subnets
-#   vpc_id      = local.vpc_id
-#   ssh_ingress = local.app_subnets_cidr
-#
-#   for_each                = var.docdb
-#   sg_port                 = each.value["sg_port"]
-#   engine_family           = each.value["engine_family"]
-#   engine                  = each.value["engine"]
-#   engine_version          = each.value["engine_version"]
-#   backup_retention_period = each.value["backup_retention_period"]
-#   preferred_backup_window = each.value["preferred_backup_window"]
-#   skip_final_snapshot     = each.value["skip_final_snapshot"]
-#   instance_count          = each.value["instance_count"]
-#   instance_class          = each.value["instance_class"]
-# }
-#
-# module "rds" {
-#   depends_on = [module.vpc]
-#   source     = "git::https://github.com/Revanthsatyam/tf-module-rds-d76.git"
-#
-#   env     = var.env
-#   tags    = var.tags
-#   kms_key = var.kms_key_arn
-#
-#   subnet_ids  = local.db_subnets
-#   vpc_id      = local.vpc_id
-#   ssh_ingress = local.app_subnets_cidr
-#
-#   for_each                = var.rds
-#   sg_port                 = each.value["sg_port"]
-#   engine_family           = each.value["engine_family"]
-#   engine                  = each.value["engine"]
-#   engine_version          = each.value["engine_version"]
-#   backup_retention_period = each.value["backup_retention_period"]
-#   preferred_backup_window = each.value["preferred_backup_window"]
-#   skip_final_snapshot     = each.value["skip_final_snapshot"]
-#   instance_count          = each.value["instance_count"]
-#   instance_class          = each.value["instance_class"]
-# }
-#
-# module "elasticache" {
-#   depends_on = [module.vpc]
-#   source     = "git::https://github.com/Revanthsatyam/tf-module-elasticache-d76.git"
-#
-#   env  = var.env
-#   tags = var.tags
-#
-#   subnet_ids  = local.db_subnets
-#   ssh_ingress = local.app_subnets_cidr
-#   vpc_id      = local.vpc_id
-#
-#   for_each        = var.elasticache
-#   sg_port         = each.value["sg_port"]
-#   engine_family   = each.value["engine_family"]
-#   engine          = each.value["engine"]
-#   node_type       = each.value["node_type"]
-#   num_cache_nodes = each.value["num_cache_nodes"]
-#   engine_version  = each.value["engine_version"]
-# }
-#
-# module "rabbitmq" {
-#   depends_on = [module.vpc]
-#   source     = "git::https://github.com/Revanthsatyam/tf-module-rabbitmq-d76.git"
-#
-#   env              = var.env
-#   tags             = var.tags
-#   ssh_ingress_cidr = var.ssh_ingress_cidr
-#   ami_id           = var.ami_id
-#   hosted_zone_id   = var.hosted_zone_id
-#   kms_key          = var.kms_key_arn
-#
-#   subnet_ids  = local.db_subnets
-#   ssh_ingress = local.app_subnets_cidr
-#   vpc_id      = local.vpc_id
-#
-#   for_each      = var.rabbitmq
-#   sg_port_1     = each.value["sg_port_1"]
-#   sg_port_2     = each.value["sg_port_2"]
-#   instance_type = each.value["instance_type"]
-# }
-#
+
+module "docdb" {
+  depends_on = [module.vpc]
+  source     = "git::https://github.com/Revanthsatyam/tf-module-docdb-d76.git"
+
+  env     = var.env
+  tags    = var.tags
+  kms_key = var.kms_key_arn
+
+  subnet_ids  = local.db_subnets
+  vpc_id      = local.vpc_id
+  ssh_ingress = local.app_subnets_cidr
+
+  for_each                = var.docdb
+  sg_port                 = each.value["sg_port"]
+  engine_family           = each.value["engine_family"]
+  engine                  = each.value["engine"]
+  engine_version          = each.value["engine_version"]
+  backup_retention_period = each.value["backup_retention_period"]
+  preferred_backup_window = each.value["preferred_backup_window"]
+  skip_final_snapshot     = each.value["skip_final_snapshot"]
+  instance_count          = each.value["instance_count"]
+  instance_class          = each.value["instance_class"]
+}
+
+module "rds" {
+  depends_on = [module.vpc]
+  source     = "git::https://github.com/Revanthsatyam/tf-module-rds-d76.git"
+
+  env     = var.env
+  tags    = var.tags
+  kms_key = var.kms_key_arn
+
+  subnet_ids  = local.db_subnets
+  vpc_id      = local.vpc_id
+  ssh_ingress = local.app_subnets_cidr
+
+  for_each                = var.rds
+  sg_port                 = each.value["sg_port"]
+  engine_family           = each.value["engine_family"]
+  engine                  = each.value["engine"]
+  engine_version          = each.value["engine_version"]
+  backup_retention_period = each.value["backup_retention_period"]
+  preferred_backup_window = each.value["preferred_backup_window"]
+  skip_final_snapshot     = each.value["skip_final_snapshot"]
+  instance_count          = each.value["instance_count"]
+  instance_class          = each.value["instance_class"]
+}
+
+module "elasticache" {
+  depends_on = [module.vpc]
+  source     = "git::https://github.com/Revanthsatyam/tf-module-elasticache-d76.git"
+
+  env  = var.env
+  tags = var.tags
+
+  subnet_ids  = local.db_subnets
+  ssh_ingress = local.app_subnets_cidr
+  vpc_id      = local.vpc_id
+
+  for_each        = var.elasticache
+  sg_port         = each.value["sg_port"]
+  engine_family   = each.value["engine_family"]
+  engine          = each.value["engine"]
+  node_type       = each.value["node_type"]
+  num_cache_nodes = each.value["num_cache_nodes"]
+  engine_version  = each.value["engine_version"]
+}
+
+module "rabbitmq" {
+  depends_on = [module.vpc]
+  source     = "git::https://github.com/Revanthsatyam/tf-module-rabbitmq-d76.git"
+
+  env              = var.env
+  tags             = var.tags
+  ssh_ingress_cidr = var.ssh_ingress_cidr
+  ami_id           = var.ami_id
+  hosted_zone_id   = var.hosted_zone_id
+  kms_key          = var.kms_key_arn
+
+  subnet_ids  = local.db_subnets
+  ssh_ingress = local.app_subnets_cidr
+  vpc_id      = local.vpc_id
+
+  for_each      = var.rabbitmq
+  sg_port_1     = each.value["sg_port_1"]
+  sg_port_2     = each.value["sg_port_2"]
+  instance_type = each.value["instance_type"]
+}
+
 # module "app" {
 #   depends_on = [module.vpc, module.alb, module.docdb, module.rds, module.elasticache, module.rabbitmq]
 #   source     = "git::https://github.com/Revanthsatyam/tf-module-app-d76.git"
