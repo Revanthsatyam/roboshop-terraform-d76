@@ -12,6 +12,9 @@ aws_ssm() {
 }
 
 if [ "${schema_type}" == "DOCDB" ]; then
-  mongo_host=$(aws_ssm catalogue.prod.DOCUMENTDB)
-  echo "$mongo_host"
+  mongo_host=$(aws_ssm catalogue.prod.MONGO_URL)
+  user_name=$(aws_ssm docdb.prod.master_username)
+  password=$(aws_ssm docdb.prod.master_password)
+
+  sh 'mongo --ssl --host $mongo_host:27017 --sslCAFile /home/centos/catalogue/rds-combined-ca-bundle.pem --username $user_name --password $password </home/centos/catalogue/schema/catalogue.js'
 fi
