@@ -12,6 +12,6 @@ aws_ssm() {
 }
 
 if [ "${schema_type}" == "DOCDB" ]; then
-  mongo_host=$(aws_ssm "catalogue.prod.DOCUMENTDB,DOCUMENTDB")
+  mongo_host=$(aws_ssm catalogue.prod.DOCUMENTDB)
   echo "$mongo_host"
 fi
