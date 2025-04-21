@@ -15,4 +15,4 @@ aws_ssm() {
   aws ssm get-parameter --name "$1" --with-decryption --query "Parameter.Value"
 }
 
-echo aws_ssm catalogue.prod.DOCUMENTDB
+aws_ssm catalogue.prod.DOCUMENTDB
