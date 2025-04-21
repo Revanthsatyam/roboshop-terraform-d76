@@ -5,14 +5,13 @@
 #  export "${aws_ssm_pm_2}"=$(aws ssm get-parameter --name "${aws_ssm_pm_1}" --with-decryption --query "Parameter.Value" --output text)
 #done
 
-#schema_type=DOCDB
-#
-#if [ "${schema_type}" == "DOCDB" ]; then
-#
-#fi
+schema_type=DOCDB
 
 aws_ssm() {
   aws ssm get-parameter --name "$1" --with-decryption --query "Parameter.Value"
 }
 
-aws_ssm catalogue.prod.DOCUMENTDB
+if [ "${schema_type}" == "DOCDB" ]; then
+  mongo_host=$(aws_ssm "catalogue.prod.DOCUMENTDB,DOCUMENTDB")
+  echo $mongo_host
+fi
