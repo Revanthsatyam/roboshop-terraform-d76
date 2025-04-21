@@ -8,7 +8,7 @@
 schema_type=DOCDB
 
 aws_ssm() {
-  aws ssm get-parameter --name "$1" --with-decryption --query "Parameter.Value"
+  aws ssm get-parameter --name "$1" --with-decryption --query "Parameter.Value" --output text
 }
 
 if [ "${schema_type}" == "DOCDB" ]; then
