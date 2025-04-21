@@ -12,7 +12,7 @@
 #fi
 
 aws_ssm() {
-  echo aws ssm get-parameter --name "$1" --with-decryption --query "Parameter.Value"
+  aws ssm get-parameter --name "$1" --with-decryption --query "Parameter.Value"
 }
 
-aws_ssm catalogue.prod.DOCUMENTDB
+echo aws_ssm catalogue.prod.DOCUMENTDB
