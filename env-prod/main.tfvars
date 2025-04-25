@@ -18,19 +18,19 @@ tags = {
 
 vpc = {
   main = {
-    cidr = "10.0.0.0/16"
+    cidr = "20.0.0.0/16"
     subnets = {
       public = {
-        public1 = { cidr = "10.0.6.0/24", az = "us-east-1a" }
-        public2 = { cidr = "10.0.7.0/24", az = "us-east-1b" }
+        public1 = { cidr = "20.0.0.0/24", az = "us-east-1a" }
+        public2 = { cidr = "20.0.1.0/24", az = "us-east-1b" }
       }
       app = {
-        app1 = { cidr = "10.0.8.0/24", az = "us-east-1a" }
-        app2 = { cidr = "10.0.9.0/24", az = "us-east-1b" }
+        app1 = { cidr = "20.0.2.0/24", az = "us-east-1a" }
+        app2 = { cidr = "20.0.3.0/24", az = "us-east-1b" }
       }
       db = {
-        db1 = { cidr = "10.0.10.0/24", az = "us-east-1a" }
-        db2 = { cidr = "10.0.11.0/24", az = "us-east-1b" }
+        db1 = { cidr = "20.0.4.0/24", az = "us-east-1a" }
+        db2 = { cidr = "20.0.5.0/24", az = "us-east-1b" }
       }
     }
   }
@@ -47,7 +47,7 @@ alb = {
     internal           = true
     load_balancer_type = "application"
     port               = 80
-    ssh_ingress        = ["10.0.0.0/16", "172.31.0.0/16"]
+    ssh_ingress        = ["20.0.0.0/16", "172.31.0.0/16"]
   }
 }
 
