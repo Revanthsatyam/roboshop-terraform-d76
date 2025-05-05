@@ -11,7 +11,6 @@ module "vpc" {
   cidr     = each.value["cidr"]
   subnets  = each.value["subnets"]
 }
-
   
 # module "alb" {
 #   depends_on = [module.vpc]
