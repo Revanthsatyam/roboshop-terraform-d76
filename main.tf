@@ -12,6 +12,7 @@ module "vpc" {
   subnets  = each.value["subnets"]
 }
 
+  
 # module "alb" {
 #   depends_on = [module.vpc]
 #   source     = "git::https://github.com/Revanthsatyam/tf-module-alb-d76.git"
